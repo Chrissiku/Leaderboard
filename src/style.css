@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+main h1 {
+  font-size: 35px;
+}
+
+main .content {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+main .content form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+main .content form h2 {
+  font-size: 25px;
+}
+
+main .content form input {
+  border: 3px solid black;
+  padding: 5px 10px;
+}
+
+main .content form input[type="submit"] {
+  box-shadow: 2px 2px 2px black;
+  background: #fff;
+  align-self: flex-end;
+}
+
+main .content section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 160px;
+}
+
+main .content section .scorestitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+main .content section .scorestitle h2 {
+  font-size: 25px;
+}
+
+main .content section .scorestitle button {
+  box-shadow: 2px 2px 2px black;
+  padding: 5px 10px;
+  background: #fff;
+}
+
+main .content section .scores {
+  border: 2px solid black;
+}
+
+main .content section .scores li {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+main .content section .scores li:nth-child(even) {
+  background: rgba(192, 188, 188, 0.781);
+}
