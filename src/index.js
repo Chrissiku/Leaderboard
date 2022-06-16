@@ -2,12 +2,16 @@
 import "./style.css";
 import { add, myList, Scores } from "./add.js";
 import scoreElement from "./display.js";
+import displayData from "./api.js";
 
 const storage = JSON.parse(localStorage.getItem("scores")) || [];
 const addBtn = document.querySelector("#submit");
 const nameField = document.querySelector("#name");
 const scoreField = document.querySelector("#score");
 const refreshBtn = document.querySelector("#refresh");
+const container = document.querySelector(".scores");
+
+displayData();
 
 storage.forEach((element) => {
   const myScoreData = new Scores(element.name, element.score);
@@ -20,5 +24,7 @@ addBtn.addEventListener("click", () => {
 });
 
 refreshBtn.addEventListener("click", () => {
-  document.location.href = "./index.html";
+  // document.location.href = "./index.html";
+  container.innerHTML = '';
+  displayData();
 });

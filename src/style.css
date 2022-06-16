@@ -53,7 +53,6 @@ main .content section {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  min-height: 160px;
 }
 
 main .content section .scorestitle {
@@ -75,6 +74,10 @@ main .content section .scorestitle button {
 
 main .content section .scores {
   border: 2px solid black;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 main .content section .scores li {
