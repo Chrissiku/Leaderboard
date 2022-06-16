@@ -6,7 +6,7 @@
 >
 >
 > In order to achieve this project I used some resources and technologies listed below :
-![ScreenShoot](https://user-images.githubusercontent.com/101924220/173818364-b48a4d85-f596-4357-92e1-9b5a10177c1c.PNG)
+![ScreenShoot](https://user-images.githubusercontent.com/101924220/174114176-a3bdd362-7c82-44c6-8871-591ec4ee54ad.PNG)
 
 <!-- ## Here is the screen shoot of the project -->
 
