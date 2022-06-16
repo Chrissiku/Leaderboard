@@ -25,6 +25,8 @@
 
 ## Live Demo (not avialable)
 
+Click [Here](https://chrissiku.github.io/Leaderboard/dist) To open the live demo
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
