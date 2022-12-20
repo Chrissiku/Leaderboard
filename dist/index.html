@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <title>Leader board</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="index.bundle.js"></script>
   <script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
   <body>
     <div class="leader_board">
@@ -21,9 +22,9 @@
         </div>
         <div class="table">
             <table>
-                <thead>
+                <thead class="head">
                     <tr>
-                        <td></td>
+                        <td>#</td>
                         <td>
                             Player
                         </td>
@@ -32,7 +33,7 @@
                         </td>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="board">
                     <tr>
                         <td id="winner">1</td>
                         <td><img src="./images/User1.jpg"><p> Jose Brag</p></td>

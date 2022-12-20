@@ -14,12 +14,14 @@
             <img src="./images/Gold.png">
             <div class="form">
                 <h3>Add new</h3>
-                <form action="">                    
-                    <input type="text" id="name" class="input" placeholder="Name" required>
-                    <input type="number" id="score" class="input" placeholder="Score" required>
+                <form>                    
+                    <input type="text"  name="user" id="user" class="input" placeholder="Name" required>
+                    <input type="number" name="score" id="score" class="input" placeholder="Score" required>
+                    <input type="submit" name="submit" id="submit" class="input" value="Save">
                 </form>
             </div>
         </div>
+        <button type="button" class="input refresh">Refresh</button>
         <div class="table">
             <table>
                 <thead class="head">
@@ -34,7 +36,7 @@
                     </tr>
                 </thead>
                 <tbody class="board">
-                    <tr>
+                    <!-- <tr>
                         <td id="winner">1</td>
                         <td><img src="./images/User1.jpg"><p> Jose Brag</p></td>
                         <td>239</td>
@@ -56,7 +58,7 @@
                         <td>4</td>
                         <td><img src="./images/User1.jpg"><p> Alex Roger</p></td>
                         <td>100</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
