@@ -6,23 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <main>
-      <h1>Leaderboard</h1>
-      <div class="content">
-        <form>
-          <h2>Add your score</h2>
-          <input type="text" placeholder="Your name" name="user" required id="name" />
-          <input type="text" placeholder="Your score" name="score" required id="score" />
-          <input type="submit" value="submit" id="submit" />
-        </form>
-        <section class="left">
-          <div class="scorestitle">
-            <h2>Recent scores</h2>
-            <button id="refresh">Refresh</button>
-          </div>
-          <ul class="scores"></ul>
-        </section>
+    <div class="leader_board">
+        <h2>Leader Board</h2>
+        <div class="header">
+            <img id="theme" alt="theme">
+            <div class="form">
+                <h4>Add new</h4>
+                <form class="form">                    
+                    <input type="text"  name="user" id="user" class="input" placeholder="Name" required>
+                    <input type="number" name="score" id="score" class="input" placeholder="Score" required>
+                    <input type="submit" name="submit" id="submit" class="input btn" value="Save">
+                </form>
+            </div>
+        </div>
+        <button type="button" class="input refresh btn">Refresh</button>
+        <div class="table">
+            <table>
+                <thead class="head">
+                    <tr>
+                        <td>#</td>
+                        <td>
+                            Player
+                        </td>
+                        <td>
+                            Score
+                        </td>
+                    </tr>
+                </thead>
+                <tbody class="board"></tbody>
+            </table>
+        </div>
       </div>
-    </main>
+  </div>
   </body>
 </html>

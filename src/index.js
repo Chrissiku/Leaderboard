@@ -1,39 +1,85 @@
-/* eslint-disable quotes */
-import "./style.css";
-import { add, myList, Scores } from "./add.js";
-import scoreElement from "./display.js";
-import { postData, displayData } from "./api.js";
+import './styles/style.css';
+import themeImg from './assets/theme.png';
+import userImg from './assets/user.jpg';
 
-const storage = JSON.parse(localStorage.getItem("scores")) || [];
-const addBtn = document.querySelector("#submit");
-const nameField = document.querySelector("#name");
-const scoreField = document.querySelector("#score");
-const refreshBtn = document.querySelector("#refresh");
-const container = document.querySelector(".scores");
-const form = document.querySelector("form");
+const theme = document.getElementById('theme');
+theme.src = themeImg;
 
-storage.forEach((element) => {
-  const myScoreData = new Scores(element.name, element.score);
-  myList.push(myScoreData);
-  scoreElement(myScoreData.name, myScoreData.score);
-});
+const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/';
+const gameId = 'SsPx20xTXWNtqFtQ6FtC';
+const scoreUrl = `${baseUrl + gameId}/scores`;
 
-form.addEventListener("submit", async (e) => {
+const createGame = async () => {
+  await fetch(baseUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: 'Christian Siku Game',
+    }),
+  })
+    .then((response) => response.json())
+    .then((json) => json);
+};
+createGame();
+
+const addScore = async (user, score) => {
+  await fetch(scoreUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      user,
+      score,
+    }),
+  })
+    .then((response) => response.json())
+    .then((json) => json)
+    .catch((error) => error);
+};
+
+const singleRow = (players) => {
+  let boardRow = '';
+  if (players.length === 0) {
+    boardRow += `<tr><td id="winner">0</td><td class="player"><img src="${userImg}" alt="user"><p>No Player</p></td><td>0</td></tr>`;
+  } else {
+    players.forEach((player, index) => {
+      boardRow += `<tr><td id="winner">${
+        index + 1
+      }</td><td class="player"><img src="${userImg}" alt="user"><p>${
+        player.user
+      }</p></td><td>${player.score}</td></tr>`;
+    });
+  }
+  document.querySelector('.board').innerHTML = boardRow;
+};
+
+const display = async () => {
+  await fetch(scoreUrl)
+    .then((response) => response.json())
+    .then((json) => singleRow(json.result));
+};
+
+// Computation
+const form = document.querySelector('.form');
+const playerName = document.querySelector('#user');
+const playerScore = document.querySelector('#score');
+const refresh = document.querySelector('.refresh');
+
+// Save form
+
+form.addEventListener('submit', (e) => {
   e.preventDefault();
-  postData(form);
-  form.children[1].value = "";
-  form.children[2].value = "";
+  addScore(playerName.value, playerScore.value);
 });
 
-addBtn.addEventListener("click", () => {
-  add(nameField.value, scoreField.value);
+// refresh feature
+refresh.addEventListener('click', () => {
+  window.location.reload();
 });
 
-refreshBtn.addEventListener("click", () => {
-  container.innerHTML = "";
-  displayData();
-});
-
-window.addEventListener("DOMContentLoaded", () => {
-  displayData();
-});
+setTimeout(() => {
+  display();
+}, 500);
