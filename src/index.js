@@ -1,7 +1,3 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable operator-linebreak */
-/* eslint-disable quotes */
-
 import "./styles/style.css";
 import themeImg from "./assets/theme.png";
 import userImg from "./assets/user.jpg";
@@ -25,12 +21,9 @@ const createGame = async () => {
     }),
   })
     .then((response) => response.json())
-    .then((json) => {
-      json;
-      console.log(json);
-    });
+    .then((json) => json);
 };
-// createGame();
+createGame();
 
 const addScore = async (user, score) => {
   await fetch(scoreUrl, {
@@ -44,9 +37,7 @@ const addScore = async (user, score) => {
     }),
   })
     .then((response) => response.json())
-    .then((json) => {
-      json;
-    })
+    .then((json) => json)
     .catch((error) => error);
 };
 
@@ -81,7 +72,7 @@ const refresh = document.querySelector(".refresh");
 // Save form
 
 form.addEventListener("submit", (e) => {
-  // e.preventDefault();
+  e.preventDefault();
   addScore(playerName.value, playerScore.value);
 });
 
@@ -90,6 +81,6 @@ refresh.addEventListener("click", () => {
   window.location.reload();
 });
 
-setTimeout(function () {
+setTimeout(() => {
   display();
 }, 500);
