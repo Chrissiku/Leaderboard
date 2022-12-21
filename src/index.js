@@ -43,3 +43,17 @@ const addScore = async (user, score) => {
     })
     .catch((error) => error);
 };
+
+const singleRow = (players) => {
+  let boardRow = "";
+  players.forEach((player, index) => {
+    boardRow += `<tr><td id="winner">${index}</td><td><img src="./images/User1.jpg"><p>${player.user}</p></td><td>${player.score}</td></tr>`;
+  });
+  document.querySelector(".board").innerHTML = boardRow;
+};
+
+const display = async () => {
+  await fetch(scoreUrl)
+    .then((response) => response.json())
+    .then((json) => singleRow(json.result));
+};
