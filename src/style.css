@@ -72,6 +72,16 @@ body {
   outline: none;
 }
 
+.btn {
+  padding: 10px 40px;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--even-color);
+  cursor: pointer;
+}
+
 table {
   margin-top: 2em;
   width: 50em;

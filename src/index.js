@@ -1,19 +1,27 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable operator-linebreak */
 /* eslint-disable quotes */
-import "./style.css";
-import LeaderBoard from "./class/leaderBoard.js";
 
-const refresh = document.querySelector(".refresh");
-const saveForm = document.forms[0];
+const gameId = "SsPx20xTXWNtqFtQ6FtC";
 
-const leaderBoard = new LeaderBoard();
-leaderBoard.getScores();
+const createGame = async () => {
+  await fetch(
+    "https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/",
+    {
+      method: "POST",
+      body: JSON.stringify({
+        name: "Christian Siku Game",
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
+    .then((response) => response.json())
+    .then((json) => {
+      json;
+      console.log(json);
+    });
+};
 
-refresh.addEventListener("click", leaderBoard.getScores);
-
-saveForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  leaderBoard.addPlayer(saveForm.user.value, saveForm.score.value);
-  saveForm.reset();
-});
+// createGame();

@@ -3,7 +3,7 @@
 /* eslint-disable quotes */
 class LeaderBoard {
   constructor() {
-    this.Id = "QoRmMvoGEZK2cdhRBBsT";
+    this.id = "SsPx20xTXWNtqFtQ6FtC";
     this.url =
       "https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/";
   }
@@ -29,17 +29,17 @@ class LeaderBoard {
   };
 
   getScores = async () => {
-    const scoreLink = `${this.url + this.gameId}/scores/`;
+    const scoreLink = `${this.url + this.id}/scores/`;
     await fetch(scoreLink)
       .then((response) => response.json())
       .then((data) => {
         data.result.sort((a, b) => b.score - a.score);
-        this.displayBoard(data.result);
+        this.display(data.result);
       });
   };
 
   addPlayer = async (user, score) => {
-    const scoreLink = `${this.url + this.gameId}/scores/`;
+    const scoreLink = `${this.url + this.id}/scores/`;
     await fetch(scoreLink, {
       method: "POST",
       headers: {
