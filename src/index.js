@@ -2,6 +2,13 @@
 /* eslint-disable operator-linebreak */
 /* eslint-disable quotes */
 
+import "./styles/style.css";
+import themeImg from "./assets/theme.png";
+import userImg from "./assets/user.jpg";
+
+const theme = document.getElementById("theme");
+theme.src = themeImg;
+
 const baseUrl =
   "https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/";
 const gameId = "SsPx20xTXWNtqFtQ6FtC";
@@ -46,14 +53,14 @@ const addScore = async (user, score) => {
 const singleRow = (players) => {
   let boardRow = "";
   if (players.length === 0) {
-    boardRow += `<tr><td id="winner">0</td><td class="player"><img src="./images/User1.jpg"><p>No Player</p></td><td>0</td></tr>`;
+    boardRow += `<tr><td id="winner">0</td><td class="player"><img src="${userImg}" alt="user"><p>No Player</p></td><td>0</td></tr>`;
   } else {
     players.forEach((player, index) => {
       boardRow += `<tr><td id="winner">${
         index + 1
-      }</td><td class="player"><img src="./images/User1.jpg"><p>${player.user}</p></td><td>${
-        player.score
-      }</td></tr>`;
+      }</td><td class="player"><img src="${userImg}" alt="user"><p>${
+        player.user
+      }</p></td><td>${player.score}</td></tr>`;
     });
   }
   document.querySelector(".board").innerHTML = boardRow;
@@ -74,9 +81,8 @@ const refresh = document.querySelector(".refresh");
 // Save form
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
+  // e.preventDefault();
   addScore(playerName.value, playerScore.value);
-  window.location.reload();
 });
 
 // refresh feature
@@ -86,4 +92,4 @@ refresh.addEventListener("click", () => {
 
 setTimeout(function () {
   display();
-}, 1000);
+}, 500);
