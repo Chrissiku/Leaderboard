@@ -36,6 +36,12 @@ body {
   gap: 2rem;
 }
 
+table img {
+  width: 2em;
+  height: 2em;
+  border-radius: 100%;
+}
+
 .leader_board .header img {
   width: 10em;
   border-radius: 10px;
@@ -107,12 +113,6 @@ table thead {
   opacity: 0.8;
 }
 
-table img {
-  width: 2em;
-  height: 2em;
-  border-radius: 100%;
-}
-
 table td {
   max-width: 2em;
   padding: 0.5em;
@@ -132,8 +132,9 @@ tbody tr:hover {
 tbody tr td:nth-child(2) p {
   display: inline-block;
   transform: translateY(-0.5em);
-  padding-left: 0.5em;
   text-align: left;
+  width: 50%;
+  padding-left: 3rem;
 }
 
 table td:nth-child(2) {
@@ -142,11 +143,6 @@ table td:nth-child(2) {
 
 tbody tr td:nth-child(2) {
   max-width: 5em;
-}
-
-tbody tr td:nth-child(2) p {
-  width: 50%;
-  padding-left: 3rem;
 }
 
 tbody tr:nth-child(even) {
